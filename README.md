@@ -25,6 +25,8 @@ https://book.getfoundry.sh/
 
 https://pentestwiki.org/blockchain/how-to-install-and-use-paradigm-foundry/
 
+https://jamesbachini.com/foundry-tutorial/
+
 https://blog.logrocket.com/unit-testing-smart-contracts-forge/
 
 https://chainstack.com/using-chainlink-data-feeds-with-foundry/
