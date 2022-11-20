@@ -1,5 +1,21 @@
 
-commangs:
+
+# Sources
+
+https://book.getfoundry.sh/
+
+https://pentestwiki.org/blockchain/how-to-install-and-use-paradigm-foundry/
+
+https://jamesbachini.com/foundry-tutorial/
+
+https://blog.logrocket.com/unit-testing-smart-contracts-forge/
+
+https://chainstack.com/using-chainlink-data-feeds-with-foundry/
+
+
+commands:
+
+# FORGE
 
 forge build
 
@@ -11,6 +27,13 @@ forge create ./src/Faucet.sol:Faucet -i --rpc-url 'https://rpc.ankr.com/polygon_
 
 forge create --rpc-url https://mainnet.infura.io --private-key abc123456789 src/MyContract.sol:MyContract --constructor-args "Hello Foundry" "Arg2"
 
+forge verify-contract --chain-id 1 --num-of-optimizations 200 --constructor-args (cast abi-encode "constructor(string)" "Hello Foundry" --compiler-version v0.8.10+commit.fc410830 0xContractAddressHere src/MyContract.sol:MyContract ABCetherscanApiKey123
+
+forge flatten --output src/MyContract.flattened.sol src/MyContract.sol
+
+forge inspect src/MyContract.sol abi
+
+
 forge install OpenZeppelin/openzeppelin-contracts
 
 after installing a library add these to remappings in toml file by copying the path value from gitmoduled file and paste on right hand side of below eq'n.
@@ -18,20 +41,31 @@ after installing a library add these to remappings in toml file by copying the p
 ds-test/=lib/forge-std/lib/ds-test/src/
 solmate/=lib/solmate/src/
 
+# CAST
 
+cast call 0xabc123 "totalSupply()(uint256)" --rpc-url https://eth-mainnet.alchemyapi.io
 
+cast send 0xabc123 "mint(uint256)" 3 --rpc-url https://eth-mainnet.alchemyapi.io --private-key=abc123
 
-Sources
+cast tx 0xa1588a7c58a0ac632a9c7389b205f3999b7caee67ecb918d07b80f859aa605fd
 
-https://book.getfoundry.sh/
+cast estimate 0xabc123 "mint(uint256)" 3 --rpc-url https://eth-mainnet.alchemyapi.io --private-key=abc123
 
-https://pentestwiki.org/blockchain/how-to-install-and-use-paradigm-foundry/
+# CHEATCODES
 
-https://jamesbachini.com/foundry-tutorial/
+Essential Cheat Codes – Full list here: https://github.com/foundry-rs/forge-std/blob/master/src/Vm.sol
 
-https://blog.logrocket.com/unit-testing-smart-contracts-forge/
-
-https://chainstack.com/using-chainlink-data-feeds-with-foundry/
+vm.warp(uint256) external; Set block.timestamp
+vm.roll(uint256) external; Set block.height
+vm.prank(address) external; Sets the next calls msg.sender to be the input address
+vm.startPrank(address) external; Sets all subsequent calls msg.sender to be the input address
+vm.stopPrank() external; Resets subsequent calls msg.sender to be `address(this)`
+vm.deal(address, uint256) external; Sets an addresses balance, (who, newBalance)
+vm.expectRevert(bytes calldata) external; Expects an error on next call
+vm.record() external; Record all storage reads and writes
+vm.expectEmit(true, false, false, false); emit Transfer(address(this)); transfer(); Check event topic 1 is equal on both events
+vm.load(address,bytes32) external returns (bytes32); Loads a storage slot from an address
+vm.store(address,bytes32,bytes32) external; Stores a value to an addresses storage slot, (who, slot, value)
 
 
 
