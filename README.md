@@ -23,7 +23,7 @@ make build  // cleans all and runs forge build again, useful when a template is 
 forge test
 
 forge run <script_filename>
-forge create ./src/Faucet.sol:Faucet -i --rpc-url 'https://rpc.ankr.com/polygon_mumbai' --private-key ${PRIVATE_KEY} --constructor-args 'token_address'
+forge create ./src/Faucet.sol:Faucet -i --rpc-url 'https://rpc.ankr.com/polygon_mumbai' --private-key ${PRIVATE_KEY} --constructor-args 'token_address' --verify --etherscan-api-key ${ETHERSCAN_API_KEY}
 
 forge create --rpc-url https://mainnet.infura.io --private-key abc123456789 src/MyContract.sol:MyContract --constructor-args "Hello Foundry" "Arg2"
 
