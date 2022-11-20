@@ -2,6 +2,8 @@
 commangs:
 
 forge build
+
+make build  // cleans all and runs forge build again, useful when a template is forked
 forge test
 
 forge run <script_filename>
