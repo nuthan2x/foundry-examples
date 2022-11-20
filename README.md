@@ -2,6 +2,8 @@
 
 # Sources
 
+https://github.com/foundry-rs/hardhat-foundry-template // hardhat + foundry integrated template
+
 https://book.getfoundry.sh/
 
 https://pentestwiki.org/blockchain/how-to-install-and-use-paradigm-foundry/
