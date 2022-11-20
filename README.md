@@ -1,3 +1,41 @@
+
+commangs:
+
+forge build
+forge test
+
+forge run <script_filename>
+forge create ./src/Faucet.sol:Faucet -i --rpc-url 'https://rpc.ankr.com/polygon_mumbai' --private-key ${PRIVATE_KEY} --constructor-args 'token_address'
+
+forge install OpenZeppelin/openzeppelin-contracts
+
+after installing a library add these to remappings in toml file by copying the path value from gitmoduled file and paste on right hand side of below eq'n.
+@openzeppelin/ = lib/openzeppelin-contracts
+ds-test/=lib/forge-std/lib/ds-test/src/
+solmate/=lib/solmate/src/
+
+
+
+
+
+
+
+
+
+Sources
+https://book.getfoundry.sh/
+
+https://pentestwiki.org/blockchain/how-to-install-and-use-paradigm-foundry/
+
+https://blog.logrocket.com/unit-testing-smart-contracts-forge/
+
+https://chainstack.com/using-chainlink-data-feeds-with-foundry/
+
+
+
+
+
+
 # Forge Template
 
 Template for Forge project based on https://github.com/soliditylabs/forge-erc20-template.
