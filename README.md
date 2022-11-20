@@ -33,6 +33,7 @@ forge flatten --output src/MyContract.flattened.sol src/MyContract.sol
 
 forge inspect src/MyContract.sol abi
 
+forge install foundry-rs/forge-std
 
 forge install OpenZeppelin/openzeppelin-contracts
 
