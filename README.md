@@ -9,6 +9,8 @@ forge test
 forge run <script_filename>
 forge create ./src/Faucet.sol:Faucet -i --rpc-url 'https://rpc.ankr.com/polygon_mumbai' --private-key ${PRIVATE_KEY} --constructor-args 'token_address'
 
+forge create --rpc-url https://mainnet.infura.io --private-key abc123456789 src/MyContract.sol:MyContract --constructor-args "Hello Foundry" "Arg2"
+
 forge install OpenZeppelin/openzeppelin-contracts
 
 after installing a library add these to remappings in toml file by copying the path value from gitmoduled file and paste on right hand side of below eq'n.
